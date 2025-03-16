@@ -5,6 +5,9 @@ import {
 	Image,
 	StyleSheet,
 	Pressable,
+	TouchableOpacity,
+	Linking,
+	ActivityIndicator,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -47,7 +50,7 @@ export const HomeScreen = () => {
 		const fetchArticles = async () => {
 			try {
 				setLoading(true);
-				const url = `https://api.wikimedia.org/feed/v1/wikipedia/${selectedLanguage}/featured/${selectedDate.year}/${selectedDate.month}/${selectedDate.day}`;
+				const url = `http://localhost:3000/feed?year=${selectedDate.year}&month=${selectedDate.month}&day=${selectedDate.day}`;
 				const response = await fetch(url, {
 					headers: {
 						Authorization:
@@ -77,12 +80,11 @@ export const HomeScreen = () => {
 
 	if (loading) {
 		return (
-			<View>
-				<Text>Loading...</Text>
+			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<ActivityIndicator size="large" />
 			</View>
 		);
 	}
-
 	if (error) {
 		return (
 			<View>
@@ -154,7 +156,19 @@ export const HomeScreen = () => {
 											height: item.thumbnail?.height || 200,
 										}}
 									/>
-									<Text>{item.titles.normalized}</Text>
+									<TouchableOpacity
+										onPress={() =>
+											Linking.openURL(item?.content_urls?.mobile.page)
+										}>
+										<Text
+											style={{
+												fontSize: 16,
+												fontWeight: 'bold',
+												marginTop: 5,
+											}}>
+											{item.titles.normalized}
+										</Text>
+									</TouchableOpacity>
 								</View>
 							)}
 							keyExtractor={item => item.wikibase_item}

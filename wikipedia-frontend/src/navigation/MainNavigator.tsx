@@ -15,7 +15,5 @@ export const MainNavigator = () => {
 		);
 	}
 
-	console.log(isAuthenticated);
-
 	return isAuthenticated ? <AppNavigator /> : <AuthNavigator />;
 };

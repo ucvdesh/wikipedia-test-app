@@ -16,7 +16,9 @@ export default function AppNavigator() {
 			<AppStack.Screen
 				name="Home"
 				component={HomeScreen}
-				options={{ title: 'Inicio' }}
+				options={{
+					header: () => null,
+				}}
 			/>
 		</AppStack.Navigator>
 	);
