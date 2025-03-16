@@ -1,4 +1,5 @@
 // test/feed.service.spec.ts
+import { AxiosRequestHeaders, AxiosResponse } from 'axios';
 import { Test, TestingModule } from '@nestjs/testing';
 import { FeedService } from '../src/feed/feed.service';
 import { HttpModule, HttpService } from '@nestjs/axios';
@@ -25,9 +26,19 @@ describe('FeedService', () => {
   it('should fetch feed data from Wikipedia API', async () => {
     const mockData = { onthisday: [] };
     // Simula la respuesta HTTP
-    jest
-      .spyOn(httpService, 'get')
-      .mockImplementation(() => of({ data: mockData }));
+    jest.spyOn(httpService, 'get').mockImplementation(() =>
+      of({
+        data: mockData,
+        status: 200,
+        statusText: 'OK',
+        headers: { 'content-type': 'application/json' },
+        config: {
+          headers: {
+            'content-type': 'application/json',
+          } as unknown as AxiosRequestHeaders,
+        },
+      } as AxiosResponse),
+    );
 
     const result = await service.getFeed('2023', '04', '15', 'en');
     expect(result).toEqual(mockData);
