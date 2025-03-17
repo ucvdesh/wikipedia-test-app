@@ -16,7 +16,9 @@ export default function AuthNavigator() {
 			<AuthStack.Screen
 				name="Login"
 				component={LoginScreen}
-				options={{ title: 'Iniciar Sesión' }}
+				options={{
+					header: () => null,
+				}}
 			/>
 		</AuthStack.Navigator>
 	);

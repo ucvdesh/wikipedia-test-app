@@ -23,6 +23,7 @@ export interface ArticlePage {
 		width: number;
 		height: number;
 	};
+	extract: string;
 	titles: {
 		normalized: string;
 	};
@@ -112,6 +113,7 @@ export const ArticleCards: React.FC<ArticleCardProps> = ({ article }) => {
 								<ShareLinkButton url={item.content_urls?.mobile.page || ''} />
 							</View>
 						</View>
+						<Text>{item.extract}</Text>
 					</View>
 				)}
 				keyExtractor={item => item.wikibase_item}
@@ -162,6 +164,7 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 		marginBottom: 10,
 		paddingHorizontal: 10,
+		paddingBottom: 10,
 		alignItems: 'center',
 	},
 	pageTitle: {

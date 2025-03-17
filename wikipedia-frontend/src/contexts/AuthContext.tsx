@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 	useEffect(() => {
 		const checkAuth = async () => {
 			await new Promise(resolve => setTimeout(resolve, 1000));
-			setIsAuthenticated(true);
+			setIsAuthenticated(false);
 			setIsLoading(false);
 		};
 

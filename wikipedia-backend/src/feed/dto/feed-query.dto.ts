@@ -4,15 +4,15 @@ import { IsNotEmpty, IsNumberString, IsOptional } from 'class-validator';
 export class FeedQueryDto {
   @IsNotEmpty()
   @IsNumberString()
-  readonly year: string;
+  readonly year!: string;
 
   @IsNotEmpty()
   @IsNumberString()
-  readonly month: string;
+  readonly month!: string;
 
   @IsNotEmpty()
   @IsNumberString()
-  readonly day: string;
+  readonly day!: string;
 
   @IsOptional()
   readonly language?: string;

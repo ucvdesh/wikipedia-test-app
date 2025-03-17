@@ -26,6 +26,7 @@ export const HomeScreen = () => {
 	const fetchData = useCallback(async () => {
 		try {
 			setLoading(true);
+			setError(null);
 			const data = await fetchArticles(selectedDate, selectedLanguage);
 			setArticles(data);
 		} catch (err) {

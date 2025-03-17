@@ -7,6 +7,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "target": "ESNext",
     "allowJs": true,
     "jsx": "react-native",
     "noEmit": true,

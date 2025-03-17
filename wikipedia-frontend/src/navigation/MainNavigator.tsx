@@ -9,7 +9,13 @@ export const MainNavigator = () => {
 
 	if (isLoading) {
 		return (
-			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+			<View
+				style={{
+					flex: 1,
+					alignItems: 'center',
+					justifyContent: 'center',
+					backgroundColor: 'white',
+				}}>
 				<ActivityIndicator size="large" />
 			</View>
 		);
