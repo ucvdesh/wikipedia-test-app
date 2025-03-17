@@ -6,9 +6,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RequestLogModule } from './request-log/request-log.module';
 import { UserPreferenceModule } from './user-preference/user-preference.module';
 import { LoggingInterceptor } from './logging.interceptor';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     ThrottlerModule.forRoot([
       {
         ttl: 60,
@@ -19,7 +23,7 @@ import { LoggingInterceptor } from './logging.interceptor';
       type: 'sqlite',
       database: 'database.sqlite',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // solo para desarrollo
+      synchronize: true,
     }),
     RequestLogModule,
     UserPreferenceModule,
