@@ -38,15 +38,6 @@ npm start
 
 With Expo you can test the app on simulators or physical devices using the Expo Go app.
 
-### Key Structure and Components
-
-src/components/DateSelector.tsx: A component for date selection styled like a dropdown.
-src/components/LanguageDropdown.tsx: A styled language selector.
-src/components/ArticleCard.tsx: Renders content cards with images and links.
-src/screens/HomeScreen.tsx: The main screen that integrates date and language selection and displays content.
-src/constants/utils.ts: Contains constants like the supported languages.
-src/services/articlesService.ts: Encapsulates API calls to the backend.
-
 ## Backend (NestJS)
 
 ### Requirements
