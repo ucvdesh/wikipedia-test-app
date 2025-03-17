@@ -5,18 +5,15 @@ import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
-    // Configura el Throttler para una ventana de 60 segundos y un máximo de 10 solicitudes
     ThrottlerModule.forRoot([
       {
-        ttl: 60, // Tiempo de ventana en segundos
-        limit: 10, // Máximo de solicitudes permitidas en esa ventana
+        ttl: 60,
+        limit: 10,
       },
     ]),
     FeedModule,
-    // Otros módulos...
   ],
   providers: [
-    // Aplica el guard globalmente para que todas las rutas tengan rate limiting
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
