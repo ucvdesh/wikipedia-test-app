@@ -1,11 +1,9 @@
-// src/screens/HomeScreen.tsx
 import React, { useCallback, useEffect, useState } from 'react';
 import {
 	View,
 	Text,
 	FlatList,
 	StyleSheet,
-	RefreshControl,
 	ActivityIndicator,
 } from 'react-native';
 import { DateSelector, LanguageSelector, ArticleCards } from '../../components';
