@@ -137,3 +137,7 @@ Tests cover both the service and controller logic.
 ### Docker
 
 Consider using Docker to containerize your backend and the self-hosted LibreTranslate instance.
+
+```bash
+sudo docker run -ti --rm -p 127.0.0.1:5000:5000 libretranslate/libretranslate
+```
