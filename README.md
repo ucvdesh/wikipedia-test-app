@@ -130,16 +130,6 @@ npm run test
 
 Tests cover both the service and controller logic.
 
-## Environment Variables
-
-It is recommended to use environment variables for sensitive configuration:
-
-- **WIKIPEDIA_TOKEN:** Authentication token for the Wikipedia API.
-- **LIBRE_TRANSLATE_URL:** URL for your self-hosted LibreTranslate instance.
-- Other sensitive configurations.
-
-You can use the `@nestjs/config` package to manage these variables.
-
 ---
 
 ## Additional Considerations
@@ -147,7 +137,3 @@ You can use the `@nestjs/config` package to manage these variables.
 ### Docker
 
 Consider using Docker to containerize your backend and the self-hosted LibreTranslate instance.
-
-### CI/CD
-
-For production environments, integrate a CI/CD pipeline to automate testing and deployments.
